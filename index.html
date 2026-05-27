@@ -1,71 +1,112 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>دعوة زفاف عمر ودعاء</title>
+
+<title>عمر & دعاء</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+
 <style>
-body{
+
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
 font-family:'Cairo',sans-serif;
-background:#1f1610;
+background:#1a0f08;
 color:white;
 overflow-x:hidden;
 }
+
 .hero{
-position:relative;
-min-height:100vh;
-background:url('hero.jpg') center/cover no-repeat;
+height:100vh;
+background:url('assets/hero.jpg') center/cover no-repeat;
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 text-align:center;
+position:relative;
 }
-.overlay{
+
+.hero::before{
+content:'';
 position:absolute;
 inset:0;
 background:rgba(0,0,0,.45);
-backdrop-filter:blur(2px);
 }
+
 .content{
 position:relative;
 z-index:2;
 padding:20px;
 }
+
 h1{
-font-size:72px;
+font-size:70px;
+color:#e6c08d;
 margin:10px 0;
-color:#f0d2a2;
 }
+
 .subtitle{
 font-size:26px;
 }
+
 .countdown{
 display:flex;
-gap:15px;
 justify-content:center;
+gap:15px;
 flex-wrap:wrap;
 margin-top:30px;
 }
+
 .box{
-background:rgba(255,255,255,.15);
+background:rgba(255,255,255,.12);
 padding:20px;
 border-radius:20px;
-min-width:100px;
+min-width:90px;
 backdrop-filter:blur(10px);
 }
+
 .box span{
 display:block;
-font-size:40px;
-color:#f7d8a8;
+font-size:36px;
 font-weight:bold;
+color:#f5d2a2;
 }
+
 .section{
-padding:40px 20px;
+padding:60px 20px;
 text-align:center;
 }
+
+.invite{
+background:#efe6dc;
+color:#9b745d;
+}
+
+.invite h2{
+font-size:52px;
+margin-bottom:40px;
+}
+
+.invite p{
+font-size:30px;
+line-height:2;
+margin-bottom:30px;
+}
+
+.names{
+margin-top:70px;
+font-size:70px;
+color:#8a644d;
+}
+
 .gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -73,114 +114,268 @@ gap:15px;
 max-width:1000px;
 margin:auto;
 }
+
 .gallery img{
 width:100%;
 height:320px;
 object-fit:cover;
 border-radius:20px;
-border:2px solid #c9a46a;
+border:2px solid #d8ae74;
 }
+
 .card{
-background:rgba(255,255,255,.08);
-border:1px solid #c9a46a;
-padding:25px;
-border-radius:25px;
 max-width:700px;
-margin:30px auto;
+margin:auto;
+padding:30px;
+border-radius:25px;
+background:rgba(255,255,255,.08);
+border:1px solid #d8ae74;
 }
+
+.card h2{
+margin-bottom:20px;
+font-size:40px;
+color:#f5d2a2;
+}
+
+.card p{
+font-size:28px;
+margin:15px 0;
+}
+
 .btn{
 display:inline-block;
-padding:15px 30px;
-background:#c9a46a;
+padding:15px 35px;
+background:#d8ae74;
 color:#111;
 text-decoration:none;
 border-radius:50px;
 font-weight:bold;
-margin-top:15px;
+margin-top:20px;
+font-size:22px;
 }
+
 .music-btn{
 position:fixed;
 top:20px;
 left:20px;
 z-index:999;
 border:none;
-padding:12px 18px;
+padding:14px 20px;
 border-radius:40px;
 background:#fff;
+font-size:18px;
 cursor:pointer;
-font-size:16px;
 }
+
+@media(max-width:768px){
+
+h1{
+font-size:48px;
+}
+
+.subtitle{
+font-size:20px;
+}
+
+.invite h2{
+font-size:38px;
+}
+
+.invite p{
+font-size:24px;
+}
+
+.names{
+font-size:52px;
+}
+
+.card p{
+font-size:22px;
+}
+
+}
+
 </style>
 </head>
+
 <body>
 
-<button class="music-btn" onclick="toggleMusic()">🎵 تشغيل / إيقاف</button>
+<button class="music-btn" onclick="toggleMusic()">
+🎵 تشغيل / إيقاف
+</button>
+
 <audio id="bgMusic" autoplay loop>
-<source src="music.mp3" type="audio/mpeg">
+<source src="assets/music.mp3" type="audio/mpeg">
 </audio>
 
 <section class="hero">
-<div class="overlay"></div>
+
 <div class="content">
-<p class="subtitle">وخلقناكم أزواجًا لتسكنوا إليها</p>
-<h1>عمر & دعاء</h1>
-<p class="subtitle">ندعوكم لحضور حفل زفافنا</p>
+
+<p class="subtitle">
+وخلقناكم أزواجًا لتسكنوا إليها
+</p>
+
+<h1>
+عمر & دعاء
+</h1>
+
+<p class="subtitle">
+ندعوكم لحضور حفل زفافنا
+</p>
 
 <div class="countdown">
-<div class="box"><span id="days">0</span>يوم</div>
-<div class="box"><span id="hours">0</span>ساعة</div>
-<div class="box"><span id="minutes">0</span>دقيقة</div>
-<div class="box"><span id="seconds">0</span>ثانية</div>
+
+<div class="box">
+<span id="days">0</span>
+يوم
 </div>
+
+<div class="box">
+<span id="hours">0</span>
+ساعة
 </div>
+
+<div class="box">
+<span id="minutes">0</span>
+دقيقة
+</div>
+
+<div class="box">
+<span id="seconds">0</span>
+ثانية
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section invite">
+
+<h2>
+بسم خالق الحب نبدأ دعوتنا إليكم
+</h2>
+
+<p>
+بكل الحب والسعادة<br>
+يسعدنا حضوركم ومشاركتكم لنا<br>
+أجمل لحظات العمر.
+</p>
+
+<p>
+وجودكم بيننا سيجعل هذا اليوم<br>
+أكثر جمالًا وبهجة وذكرى لا تُنسى.
+</p>
+
+<div class="names">
+عمر & دعاء
+</div>
+
 </section>
 
 <section class="section">
-<h2>لحظات من قصتنا</h2>
+
+<h2 style="margin-bottom:40px;font-size:45px;color:#f5d2a2">
+لحظات من قصتنا
+</h2>
+
 <div class="gallery">
+
 <img src="assets/hero.jpg">
+
 <img src="assets/gallery1.jpg">
+
 <img src="assets/gallery2.jpg">
+
 <img src="assets/gallery3.jpg">
+
 </div>
+
 </section>
+
 <section class="section">
+
 <div class="card">
-<h2>تفاصيل الحفل</h2>
-<p>الجمعة 16 أكتوبر 2026</p>
-<p>الساعة 9:00 مساءً</p>
-<p>قاعة Diamond Hall</p>
-<a class="btn" target="_blank" href="https://maps.app.goo.gl/RPXMxUht4xTKCKT37?g_st=ic">فتح الخريطة</a>
+
+<h2>
+تفاصيل الحفل
+</h2>
+
+<p>
+الجمعة 16 أكتوبر 2026
+</p>
+
+<p>
+الساعة 9:00 مساءً
+</p>
+
+<p>
+قاعة Diamond Hall
+</p>
+
+<a class="btn"
+target="_blank"
+href="https://maps.app.goo.gl/RPXMxUht4xTKCKT37?g_st=ic">
+
+فتح الخريطة
+
+</a>
+
 </div>
+
 </section>
 
 <script>
-const targetDate = new Date("2026-10-16T21:00:00").getTime();
+
+const targetDate =
+new Date("2026-10-16T21:00:00").getTime();
 
 setInterval(()=>{
+
 const now = new Date().getTime();
+
 const distance = targetDate - now;
 
-const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+document.getElementById("days").innerHTML =
+Math.floor(distance / (1000*60*60*24));
 
-document.getElementById("days").innerText = days;
-document.getElementById("hours").innerText = hours;
-document.getElementById("minutes").innerText = minutes;
-document.getElementById("seconds").innerText = seconds;
+document.getElementById("hours").innerHTML =
+Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+
+document.getElementById("minutes").innerHTML =
+Math.floor((distance % (1000*60*60)) / (1000*60));
+
+document.getElementById("seconds").innerHTML =
+Math.floor((distance % (1000*60)) / 1000);
+
 },1000);
 
-const music = document.getElementById("bgMusic");
+const music =
+document.getElementById("bgMusic");
+
 function toggleMusic(){
-if(music.paused){music.play();}
-else{music.pause();}
+
+if(music.paused){
+
+music.play();
+
+}else{
+
+music.pause();
+
+}
+
 }
 
 document.body.addEventListener('click', ()=>{
+
 music.play().catch(()=>{});
-}, {once:true});
+
+},{once:true});
+
 </script>
 
 </body>
